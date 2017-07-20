@@ -22,7 +22,7 @@ def add_new_shopping_list(shopping_dict, store_name):
     """
 
     # your code here!
-    pass
+    shopping_dict[store_name] = []
 
 
 def remove_shopping_list(shopping_dict, store_to_remove):
@@ -39,7 +39,10 @@ def remove_shopping_list(shopping_dict, store_to_remove):
     """
 
     # your code here!
-    pass
+    if store_to_remove not in shopping_dict:
+        print "{} does not exist".format(store_to_remove)
+    else:
+        del shopping_dict[store_to_remove]
 
 
 def add_to_shopping_list(shopping_dict, list_name, items):
@@ -89,7 +92,12 @@ def display_shopping_list(shopping_dict, list_name):
     """
 
     # your code here!
-    pass
+    if list_name not in shopping_dict:
+        print "{} does not exist".format(list_name)
+    else:
+        for items in shopping_dict[list_name]:
+            print items
+
 
 
 def show_all_lists(shopping_dict):
@@ -102,7 +110,10 @@ def show_all_lists(shopping_dict):
     """
 
     # your code here!
-    pass
+    for key in shopping_dict:
+        # print 
+        print "\n\n" + key
+        display_shopping_list(shopping_dict, key)
 
 
 def parse_string_of_items(items_string):
